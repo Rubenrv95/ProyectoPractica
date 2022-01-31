@@ -25,7 +25,6 @@
                                         <label for="">Tipo de empleado</label>
                                         <select class="form-select form-select-lg" name="tipo" aria-label=".form-select-lg example" style="width: 470px; margin-bottom: 20px; font-size: 18">
                                             <option selected value="Supervisor">Supervisor</option>
-                                            <option selected value="Técnico de Aseo">Técnico de Aseo</option>
                                             <option selected value="Recursos Humanos">Recursos Humanos</option>
                                         </select>
                                     </div>       

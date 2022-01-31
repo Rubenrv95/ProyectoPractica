@@ -7,34 +7,18 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card" style="background-color: #f4f4f4">
                 <div class="col" style="margin: auto">
-                    <a href="/usuarios" style="">
-                        <button type="button" class="btngestionar">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/48px-User_icon_2.svg.png" alt="" srcset="">
-                            Usuarios
-                        </button>
-                    </a>
-                    <a href="/usuarios" style="">
-                        <button type="button" class="btngestionar">
-                        <img src="/images/building_icon.png" alt="">
-                            Instalaciones
-                        </button>
-                    </a>
-                </div>
-                <div class="col" style="margin: auto; margin-top: 10px">
-                    <a href="/usuarios" style="">
-                        <button type="button" class="btngestionar">
-                            <img src="/images/check_icon.png" alt="">
-                            Asistencia
-                        </button>
-                    </a>
-                    <a href="/usuarios" style="">
-                        <button type="button" class="btngestionar">
-                            <img src="/images/report_icon.png" alt="">
-                            Reportes
-                        </button>
-                    </a>
+
+
+                    <h1 class="text-center">Bienvenido a Union Global Services</h1>
+
+
+                    <p>
+                        La presente aplicación tiene como finalidad la toma de asistencia de los empleados de UGS por parte de los supervisores
+
+                    </p>
+                    
                 </div>
             </div>
         </div>

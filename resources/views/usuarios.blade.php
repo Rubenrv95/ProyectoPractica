@@ -18,18 +18,26 @@
     </head>
     @section('content')
     <body>
-        
+
+    
+        <header>
+            <div class="container "> 
+                <div class="col text-center">
+                    <h1 style="font-weight: bold; font-size: 48px">Listado de Usuarios</h1>
+                </div>
+            </div>
+        </header>
 
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card">
-                        <div class="col text-center">
+                        <div class="col" style="margin-left: auto">
                             <button type="button" class="btngestionar" data-bs-toggle="modal" data-bs-target="#modal_create" style="width: 150px; height: 30px">
                                 Agregar usuario
                             </button>
-                        </div>              
-
+                            <p></p>
+                        </div>       
                         <table id="usuarios" class="table table-striped table-bordered" style="width:100%">
                             <thead>
                                 <th>Nombre</th>
@@ -119,7 +127,6 @@
                                                 <label for="">Tipo de empleado</label>
                                                 <select class="form-select form-select-lg" name="tipo" id="tipo" aria-label=".form-select-lg example" style="width: 470px; margin-bottom: 20px; font-size: 18">
                                                     <option selected value="Supervisor">Supervisor</option>
-                                                    <option selected value="Técnico de Aseo">Técnico de Aseo</option>
                                                     <option selected value="Recursos Humanos">Recursos Humanos</option>
                                                 </select>
                                             </div>       

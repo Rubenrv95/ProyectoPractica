@@ -26,10 +26,17 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/home', function() {
 });
 
 Auth::routes();
-Route::post('/login', 'Auth\LoginController@login');;
+Route::post('/login', 'Auth\LoginController@login');
 Route::get('/home', 'HomeController@index');
 
 Route::post('registrar', 'UserController@create');
 Route::resource('/usuarios', 'UserController');
+
+Route::resource('/instalaciones', 'InstalacionController');
+Route::post('crear_insta', 'InstalacionController@create');
+
+Route::resource('/empleados', 'EmpleadoController');
+
+Route::resource('/asistencia', 'FormController');
 
 Route::get('/logout', 'Auth\LoginController@logout');
