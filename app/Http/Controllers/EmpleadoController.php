@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Empleado;
+use App\Exports\EmpleadoExport;
 use Illuminate\Http\Request;
 use App\Models\Instalacion;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Maatwebsite\Excel\Facades\Excel;
 
 class EmpleadoController extends Controller
 {
@@ -16,12 +19,18 @@ class EmpleadoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    private $excel;
+
     public function index()
     {
         //
-        $data =DB::table('empleados')->join('instalacions', 'instalacions.id', '=', 'empleados.instalacion')->select('empleados.nombre', 'empleados.email', 'empleados.telefono', 'instalacions.nombre_insta')->get();
+        $data =Empleado::orderBy('nombre')->get();
         $insta= Instalacion::orderBy('nombre_insta')->get();
-        return view('empleados', ['empleado' => $data], ['insta' => $insta]);
+        return view('empleados')->with('empleado', $data)->with('insta', $insta);
+    }
+
+    public function _construct(Excel $excel) {
+        $this->excel = $excel;
     }
 
     /**
@@ -29,9 +38,26 @@ class EmpleadoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $request->validate([
+            'nombre'=>['required', 'string', 'min:3', 'max:255'],
+            'RUT'=>['required', 'string', 'min:12'],
+            'email'=>['required', 'string', 'email', 'max:255'],
+            'telefono'=>['required', 'string', 'min: 3', 'max:12'],
+        ]);
+
+
+        $query = DB::table('empleados')->insert([ 
+                'nombre' => $request->input('nombre'),
+                'RUT' => $request->input('RUT'),
+                'email' => $request->input('email'),
+                'telefono' => $request->input('telefono'),
+                'instalacion' => $request->input('instalacion'),
+                'Cargo' => $request->input('cargo')
+        ]);
+
+        return redirect()->intended('/empleados');
     }
 
     /**
@@ -43,6 +69,11 @@ class EmpleadoController extends Controller
     public function store(Request $request)
     {
         //
+    }
+
+    public function export()
+    {
+        return Excel::download(new EmpleadoExport, 'empleados.xlsx');
     }
 
     /**
@@ -74,9 +105,25 @@ class EmpleadoController extends Controller
      * @param  \App\Models\Empleado  $empleado
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Empleado $empleado)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'nombre'=>['required', 'string', 'min:3', 'max:255'],
+            'RUT'=>['required', 'string', 'min:12'],
+            'email'=>['required', 'string', 'email', 'max:255'],
+            'telefono'=>['required', 'string', 'min: 3', 'max:12'],
+        ]);
+
+        $query = DB::table('empleados')->where('RUT', $id)->update([
+            'nombre' => $request->input('nombre'),
+            'RUT' => $request->input('RUT'),
+            'email' => $request->input('email'),
+            'telefono' => $request->input('telefono'),
+            'instalacion' => $request->input('instalacion'),
+            'Cargo' => $request->input('cargo')
+        ]);
+
+        return redirect('/empleados');
     }
 
     /**
@@ -85,8 +132,10 @@ class EmpleadoController extends Controller
      * @param  \App\Models\Empleado  $empleado
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Empleado $empleado)
+    public function destroy($id)
     {
-        //
+        $query = DB::table('empleados')->where('RUT', $id)->delete();
+
+        return redirect('/empleados');
     }
 }

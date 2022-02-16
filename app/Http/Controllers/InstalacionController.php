@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Instalaciones;
+use App\Exports\InstalacionExport;
 use Illuminate\Http\Request;
 use App\Models\Instalacion;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Maatwebsite\Excel\Facades\Excel;
 
 class InstalacionController extends Controller
 {
@@ -54,6 +57,11 @@ class InstalacionController extends Controller
     public function store(Request $request)
     {
         //
+    }
+
+    public function export()
+    {
+        return Excel::download(new InstalacionExport, 'instalaciones.xlsx');
     }
 
     /**

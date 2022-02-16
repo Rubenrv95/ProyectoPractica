@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Maatwebsite\Excel\Facades\Excel;
 
 
 class UserController extends Controller
@@ -55,6 +56,11 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //
+    }
+
+    public function export()
+    {
+        return Excel::download(new UserExport, 'usuarios.xlsx');
     }
 
     /**

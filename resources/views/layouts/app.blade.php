@@ -25,6 +25,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
     <!-- Styles de Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
@@ -34,8 +35,8 @@
 <body>
     <div id="app">
         <header>
-            <!-- Barra de Navegación-->
-            <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+            <!-- Barra Superior-->
+            <nav id="barra" class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
                 <div class="container">
                     <a class="navbar-brand" href="/home">
                         <div class="logo-image">
@@ -82,7 +83,7 @@
             </nav>
         </header>
         <section>
-            <div class=container>
+            <div class="container">
 
                 @guest
 
@@ -91,42 +92,47 @@
                 @endif
                 @else
 
-                <nav class="navbar navbar-expand-sm" style="background-color: #e6e6e6; height: 48px">
-                    <div class="container-fluid">
-                        <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                        <ul class="navbar-nav mx-auto">
-                            <li class="nav-item  text-center" style="border: 0.5px solid black;" >
-                            <a class="nav-link" href="/home" style="font-size: 20px; color:black">
-                                Inicio
-                            </a>
-                            </li>
-                            <li class="nav-item  text-center" style="border: 0.5px solid black;" >
-                            <a class="nav-link" href="/usuarios" style="font-size: 20px; color:black">
-                                Usuarios
-                            </a>
-                            </li>
-                            <li class="nav-item text-center" style="border: 0.5px solid black;">
-                            <a class="nav-link" href="/instalaciones" style="font-size: 20px; color:black">
-                                Instalaciones</a>
-                            </li>
-                            <li class="nav-item text-center" style="border: 0.5px solid black;">
-                            <a class="nav-link" href="/empleados" style="font-size: 20px; color:black">
-                                Empleados</a>
-                            </li>
-                            
-                            <li class="nav-item text-center" style="border: 0.5px solid black;">
-                            
-                            <a class="nav-link" href="/asistencia" style="font-size: 20px; color:black">
-                                Asistencia</a>
-                            </li>
-                            <li class="nav-item text-center" style="border: 0.5px solid black;">
-                            <a class="nav-link" href="#" style="font-size: 20px; color:black">
-                                Reportes</a>
-                            </li>
-                        </ul>
+                <div class="col text-center">
+                    <!-- Barra de Navegación-->
+                    <nav class="navbar navbar-expand-sm" style="background-color: transparent; height: 35px">
+                        <div class="container-fluid">
+                            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                                <ul class="navbar-nav mx-auto">
+                                    <li class="nav-item  text-center" style="" >
+                                    <a class="nav-link" href="/home" style="font-size: 20px; color:black; width:59px">
+                                        <button type="button" class="btnNav" style="width: 59px">Inicio</button>
+                                    </a>
+                                    </li>
+                                    <li class="nav-item  text-center" style="" >
+                                    <a class="nav-link" href="/usuarios" style="font-size: 20px; color:black; width:87px">
+                                        <button type="button" class="btnNav"  style="width: 87px">Usuarios</button>
+                                    </a>
+                                    </li>
+                                    <li class="nav-item text-center" style="">
+                                    <a class="nav-link" href="/instalaciones" style="font-size: 20px; color:black; width:125px">
+                                        <button type="button" class="btnNav"  style="width: 125px">Instalaciones</button> 
+                                    </a>
+                                    </li>
+                                    <li class="nav-item text-center" style="">
+                                    <a class="nav-link" href="/empleados" style="font-size: 20px; color:black; width:115px">
+                                        <button type="button" class="btnNav" style="width: 115px">Empleados</button></a>
+                                    </li>
+                                    
+                                    <li class="nav-item text-center" style="">
+                                    
+                                    <a class="nav-link" href="/asistencia" style="font-size: 20px; color:black; width:114px">
+                                        <button type="button" class="btnNav" style="width: 114px">Asistencia</button></a>
+                                    </li>
+                                    <li class="nav-item text-center" style="">
+                                    <a class="nav-link" href="/reportes" style="font-size: 20px; color:black; width:110px">
+                                        <button type="button" class="btnNav" style="width: 110px">Reportes</button></a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                </nav> 
+                    </nav>                    
+                </div>
+
                 @endguest
             </div>
             @yield('content')

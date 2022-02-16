@@ -20,55 +20,56 @@
         </div>
     </header>
     <div class="container">
-        <div class="col text-center">
-            <div class="card">
-                <label for="bday" style="margin-right: auto">Ingrese una fecha:</label>
-                <input type="date" id="bday" name="bday" style="width: 200px">
-                <label for="" style="margin-right: auto">Seleccionar instalación</label>
-                <select class="form-select form-select-lg" name="instalacion" id="instalacion" aria-label=".form-select-lg example" style="width: 470px; margin-bottom: 20px; font-size: 18">
-                    @foreach ($insta as $i)
-                    <option selected value="{{$i['nombre']}}" placeholder="Seleccionar instalación"> {{$i['nombre']}}</option>
-                    @endforeach
-                </select>
-                
-                <p></p>
-                <form class="text-center" style="margin:auto">
-                    
-                    <table id="myTable" class="table table-striped table-bordered">
-                        <thead>
-                            <th >Nombre</th>
-                            <th>Correo Electrónico</th>
-                            <th>Teléfono</th>
-                            <th>Instalación</th>
-                            <th>Ocurrencia</th>
-                        </thead>
-                        <tbody>
-                            @foreach ($empleado as $emp)
-                            <tr>
-                                <td>{{$emp['nombre']}}</td>
-                                <td>{{$emp['email']}}</td>
-                                <td>{{$emp['telefono']}}</td>
-                                <td>{{$emp['instalacion']}}</td>
-                                <td style="width: 220px">
-                                    <select class="form-select form-select" name="" id="" style="margin-left: auto" aria-label=".form-select example" style="font-size: 14">
-                                        <option selected value="">Asiste</option>
-                                        <option value=""> Falta</option>
-                                        <option value=""> Falta justificada</option>
-                                        <option value=""> Bono por sobre esfuerzo y reemplazo</option>
-                                        <option value=""> Licencia</option>
-                                        <option value=""> Vacaciones</option>
-                                    </select>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <form action="/asistencia/descargar" method="POST" class="text-center" style="margin:auto">
+                        {{ csrf_field() }}
+                        <label for="fecha" style="margin-left: auto">Ingrese una fecha:</label>
+                        <input type="date" id="fecha" name="fecha" style="width: 200px; margin-left: auto">
+                        <p></p>
+                        <table id="myTable" name="myTable" class="table table-striped table-bordered">
+                            <thead>
+                                <th >Nombre</th>
+                                <th>RUT</th>
+                                <th>Correo Electrónico</th>
+                                <th>Teléfono</th>
+                                <th>Instalación</th>
+                                <th>Ocurrencia</th>
+                            </thead>
+                            <tbody>
+                                @foreach ($empleado as $emp)
+                                <tr>
+                                    <td>{{$emp['nombre']}}</td>
+                                    <td>{{$emp['RUT']}}</td>
+                                    <td>{{$emp['email']}}</td>
+                                    <td>{{$emp['telefono']}}</td>
+                                    <td>{{$emp['instalacion']}}</td>
+                                    <td style="width: 220px">
+                                        <select class="form-select form-select" name="ocurrencia" id="ocurrencia" style="margin-left: auto" aria-label=".form-select example" style="font-size: 14">
+                                            <option selected value="Asiste">Asiste</option>
+                                            <option value="Falta"> Falta</option>
+                                            <option value="Falta justificada"> Falta justificada</option>
+                                            <option value="Bono por sobre esfuerzo y reemplazo"> Bono por sobre esfuerzo y reemplazo</option>
+                                            <option value="Licencia"> Licencia</option>
+                                            <option value="Licencia Provisoria"> Licencia Provisoria</option>
+                                            <option value="Vacaciones"> Vacaciones</option>
+                                            <option value="Suspensión"> Suspensión</option>
+                                            <option value="Permiso sin Goce"> Permiso sin Goce</option>
+                                            <option value="Permiso con goce"> Permiso con goce</option>
+                                        </select>
 
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table> 
-                    <p></p>
-                    
-                    <button class="btn btn-primary" style="margin-left: auto; width: 100px">Enviar</button>
-                </form>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table> 
+                        <p></p>
+                            
+                        <button type="submit" class="btn btn-primary" style="margin-left: auto; width: 100px">Enviar</button>
+                    </form>
 
+                </div>
             </div>
         </div>
     

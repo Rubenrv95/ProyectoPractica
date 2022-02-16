@@ -36,6 +36,7 @@
                             <button type="button" class="btngestionar" data-bs-toggle="modal" data-bs-target="#modal_create" style="width: 170px; height: 30px">
                                 Agregar Instalación
                             </button>
+                            <a href="/descargar_instalacion"> <button type="button" class="btngestionar" style="width: 100px; height: 30px">Descargar</button></a>
                             <p></p>
                         </div>              
                         <table id="instalaciones" class="table table-striped table-bordered" style="width:100%">
@@ -193,8 +194,8 @@
 
         </script>
     </body>
-
     @endsection
+    
 </html>
 
 

@@ -8,8 +8,9 @@ use App\Models\Empleado;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Maatwebsite\Excel\Facades\Excel;
 
-class FormController extends Controller
+class FormularioController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +19,7 @@ class FormController extends Controller
      */
     public function index()
     {
-        $data = Instalacion::orderBy('nombre')->get();
+        $data = Instalacion::orderBy('nombre_insta')->get();
         $emp = Empleado::orderBy('nombre')->get();
         return view('formulario', ['insta' => $data], ['empleado' => $emp]);
     }
@@ -41,7 +42,11 @@ class FormController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->all());
+    }
+
+    public function exportExcel(Request $request) {
+        
     }
 
     /**

@@ -10,9 +10,15 @@
   }
   
 .btn-login:hover {
-    background-color: #eaf8fd; 
-    color: rgb(0, 0, 0);
+    background-color: #96cde0; 
+    color: rgb(255, 255, 255);
 }
+
+.btn-login:active {
+    background: #163952;
+    color: rgb(255, 255, 255);
+}
+
 
 .btngestionar {
     background: #7474BF;  /* fallback for old browsers */
@@ -37,6 +43,18 @@
 
 }
 
+.btngestionar:active {
+    background: #0e4653;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #488997, #07637a);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #24444b, #08262e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: rgb(255, 255, 255);
+}
+
+
+#barra {
+    background-image: url('/images/neo-header.jpg');
+}
+
 #edit {
     background-image: url('/images/edit_icon.png');
     background-repeat: no-repeat;
@@ -51,6 +69,11 @@
 
 #edit:hover {
     background-color: rgb(118, 116, 245);
+    border-radius: 6px;
+}
+
+#edit:active {
+    background-color: rgb(69, 66, 245);
     border-radius: 6px;
 }
 
@@ -69,4 +92,33 @@
 #delete:hover {
     background-color: rgb(247, 99, 99);
     border-radius: 6px;
+}
+
+#delete:active {
+    background-color: rgb(255, 32, 32);
+    border-radius: 6px;
+}
+
+.btnNav {
+    background-color: rgb(236, 238, 240);
+    border: 0.1px solid black;
+    cursor: pointer;
+    outline: none;
+}
+
+.btnNav:hover {
+    background-color: rgb(206, 206, 206);
+}
+
+.btnNav:active{
+    background-color: rgb(182, 183, 184);
+    box-shadow: 3px 2px 22p 1px rgba(rgb(2rgb(193, 201, 193)96, 196), rgb(213rgb(255, 255, 255)1, 213), blue, alpha);
+}
+
+.dropdown-item {
+    
+}
+
+.dropdown-item:active {
+    background-color: rgb(142, 142, 143);
 }
