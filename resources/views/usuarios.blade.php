@@ -19,59 +19,47 @@
     @section('content')
     <body>
 
-    
-        <header>
-            <div class="container "> 
-                <div class="col text-center">
-                    <h1 style="font-weight: bold; font-size: 48px">Listado de Usuarios</h1>
-                </div>
+        <div class="container-fluid">
+
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                <h1 class="h3 mb-0 text-gray-800">Listado de Usuarios</h1>
             </div>
-        </header>
+            <button type="button" class="btngestionar" data-bs-toggle="modal" data-bs-target="#modal_create" style="width: 150px; height: 30px;">
+                Agregar usuario
+            </button>
+            <a href="/usuarios_descarga"> <button type="button" class="btngestionar" style="width: 130px; height: 30px">Exportar todo</button></a>
+            <p></p>
 
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <div class="card">
-                        <div class="col" style="margin-left: auto">
-                            <button type="button" class="btngestionar" data-bs-toggle="modal" data-bs-target="#modal_create" style="width: 150px; height: 30px;">
-                                Agregar usuario
-                            </button>
-                            <a href="/usuarios_descarga"> <button type="button" class="btngestionar" style="width: 130px; height: 30px">Exportar todo</button></a>
-                            <p></p>
-
-                            <form action="/usuarios/importar" method="post" enctype="multipart/form-data">
-                                @csrf
-                                <div class="form-group">
-                                    <input type="file" name="file"/>
-                                    <button type="file" class="btngestionar" style="width: 100px; height: 30px"> Importar </button>
-                                </div>
-                            </form>
-                        </div>       
-                        <table id="usuarios" class="table table-striped table-bordered" style="width:100%">
-                            <thead>
-                                <th>Nombre</th>
-                                <td>Correo Electrónico</td>
-                                <td>Tipo</td>
-                                <td>Acciones</td>
-                            </thead>
-
-                            <tbody>
-                                @foreach ($usuario as $user)
-                                <tr>
-                                    <td> {{$user['nombre']}}</td>
-                                    <td>{{$user['email']}}</td>
-                                    <td>{{$user['tipo']}}</td>
-                                    <td>
-                                        <button type="button" id="edit" data-bs-toggle="modal" data-bs-target="#modal_edit" class="edit"></button>
-                                        <button type="button" id="delete" data-bs-toggle="modal" data-bs-target="#modal_del" class="delete"></button>
-                                    </td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
+            <form action="/usuarios/importar" method="post" enctype="multipart/form-data">
+                @csrf
+                <div class="form-group">
+                    <input type="file" name="file"/>
+                    <button type="file" class="btngestionar" style="width: 100px; height: 30px"> Importar </button>
                 </div>
-            </div>
+            </form>
+            <table id="usuarios" class="table table-striped table-bordered" style="width:100%">
+                <thead>
+                    <th>Nombre</th>
+                    <td>Correo Electrónico</td>
+                    <td>Tipo</td>
+                    <td>Acciones</td>
+                </thead>
+
+                <tbody>
+                    @foreach ($usuario as $user)
+                    <tr>
+                        <td> {{$user['nombre']}}</td>
+                        <td>{{$user['email']}}</td>
+                        <td>{{$user['tipo']}}</td>
+                        <td>
+                            <button type="button" id="edit" data-bs-toggle="modal" data-bs-target="#modal_edit" class="edit"></button>
+                            <button type="button" id="delete" data-bs-toggle="modal" data-bs-target="#modal_del" class="delete"></button>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+
         </div>
 
 

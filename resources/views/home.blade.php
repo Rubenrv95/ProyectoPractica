@@ -5,48 +5,101 @@
 
 @section('content')
 <body>
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card" style="background-color: #f4f4f4">
-                <div class="col" style="margin: auto">
 
+    <div class="container-fluid">
 
-                    <h1 class="text-center">Bienvenido a Union Global Services</h1>
+        <!-- Page Heading -->
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Reportes</h1>
+        </div>
+        
+        <!-- Content Row -->
+        <div class="row">
 
-
-                    <p style="padding-left: 10px">
-                    Union Global Services (UGS) Ltda. es una empresa de servicios integrales que nace por la necesidad de las empresas en externalizar aquellas áreas que no son parte constitutiva de su organización, transformándonos en un apoyo importante para cubrir estas necesidades.
-                    </p>
-
-                    <img src="https://lh3.googleusercontent.com/p/AF1QipOo2hTkms2ZDK-WUi8FrHySDcpcT4s91sBllspt=s1600-w400" alt="" srcset="" style="padding-left: 175px">
-
-                    <p style="padding-left: 10px">Además, nuestro equipo humano es objeto de permanentes capacitaciones en sus respectivas áreas. De esta forma podemos asegurar la mejor calidad de servicio a nuestros clientes, permitiendo y facilitanto la toma de decisiones y ofreciendo soluciones efectivas.</p>
-                    
-                    <img src="https://lh3.googleusercontent.com/p/AF1QipNNVBwGXxaAQpck9ayW1QsRPGp0OJd8IePclRgG=s1600-w400" alt="" srcset="" style="padding-left: 175px">
-
-
-                    <p style="padding-left: 10px">Nuestra política de calidad se fundamenta en los principios y valores que UGS propicia, los que sustentan nuestra vocación de servicio. Esta se construye de la mano de nuestros trabajadores, quienes son la base de nuestra fortaleza. </p>
-                    <p style="padding-left: 10px">La integración de estas premisas, nos permite concebir servicios con los más altos estándares de calidad, alineados con los conceptos adoptados por UGS de mejora continua y calidad total.</p>
-                    <p style="padding-left: 10px">Todo lo anterior, ha sido proyectado y orientado en satisfacer no solo los requerimientos de nuestros clientes internos y externos sino, sus reales expectativas.</p>
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    Earnings (Monthly)</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
+
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-success shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                    Earnings (Annual)</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-info shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
+                                </div>
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col-auto">
+                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800" style="padding-left: 12px"> 50%</div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="progress progress-sm mr-2">
+                                            <div class="progress-bar bg-info" role="progressbar"
+                                                style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+                                                aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pending Requests Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-warning shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                    Pending Requests</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-comments fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+    </div>          
 </body>
-<footer>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card text-center" style="background-color: #1493d2">
-                    <p style="color: white; font-style: bold">JOSÉ PEDRO ALESSANDRI Nº 880  •  ÑUÑOA, Santiago de Chile</p>
-                    <p style="color: white; font-style: bold">Teléfono: (56 2) 2202 7070  •  Fax: (56 2) 2343 7199</p>
-                    <p style="color: white; font-style: bold">E-mail: ugs@ugs.cl  •  Web: www.ugs.cl</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
 @endsection
 

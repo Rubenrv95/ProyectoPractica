@@ -21,9 +21,9 @@
 
 
 .btngestionar {
-    background: #7474BF;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #348AC7, #7474BF);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #348AC7, #44446e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #000000;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #000000, #1a1a1a);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #5a6ae9, #0e55b1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     color: white;
     border: 1px solid black;
     border-radius: 6px;
@@ -35,18 +35,16 @@
 
 .btngestionar:hover {
     transition-duration: 0.6s;
-    background: #2193b0;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #6dd5ed, #2193b0);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #6dd5ed, #2193b0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #353434;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #3a3939, #686767);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #4b4a4a, #7a7878); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     color: rgb(255, 255, 255);
     font-weight: bold;
 
 }
 
 .btngestionar:active {
-    background: #0e4653;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #488997, #07637a);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #24444b, #08262e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #3a3939, #575757);   
     color: rgb(255, 255, 255);
 }
 

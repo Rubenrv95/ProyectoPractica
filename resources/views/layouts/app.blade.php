@@ -26,6 +26,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <!-- Styles de Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
@@ -34,59 +35,13 @@
 </head>
 <body>
     <div id="app">
-        <header>
-            <!-- Barra Superior-->
-            <nav id="barra" class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-                <div class="container">
-                    <a class="navbar-brand" href="/home">
-                        <div class="logo-image">
-                            <img style="width: 200px; height: 60px" src="/images/logo2.png" alt="">
-                        </div>
-                    </a>
 
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <!-- Left Side Of Navbar -->
-                        <ul class="navbar-nav me-auto">
+            @guest
 
-                        </ul>
-
-                        <!-- Right Side Of Navbar -->
-                        <ul class="navbar-nav ms-auto">
-
-                            @guest
-
-                                @if (Route::has('register'))
-                                    
-                                @endif
-                            @else
-                                <li class="nav-item dropdown">
-
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" style="font-size: 22px" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        {{ Auth::user()->nombre }}
-                                    </a>
-
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modal"
-                                            onclick="event.preventDefault();">
-                                            {{ __('Ver Datos de Perfil') }}
-                                        </a>
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                                        document.getElementById('logout-form').submit();">
-                                            {{ __('Cerrar Sesión') }}
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                            @csrf
-                                        </form>
-                                    </div>
-                                </li>
-                            @endguest
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-
+            @if (Route::has('register'))
+                
+            @endif
+            @else
             <!-- Modal Ver Usuario-->
             <div class="container">
                 <div class="row">
@@ -122,63 +77,137 @@
                     </div>
                 </div>
             </div>
+            @endguest
+    <div id="wrapper">
 
-        </header>
-        <section>
-            <div class="container">
+            
+            @guest
 
-                @guest
+            @if (Route::has('register'))
+                
+            @endif
+            @else
+            <!-- Sidebar -->
+            <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar" style="background: #0dcac2">
 
-                @if (Route::has('welcome'))
-                                    
-                @endif
-                @else
-
-                <div class="col text-center">
-                    <!-- Barra de Navegación-->
-                    <nav class="navbar navbar-expand-sm" style="background-color: transparent; height: 35px">
-                        <div class="container-fluid">
-                            <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                                <ul class="navbar-nav mx-auto">
-                                    <li class="nav-item  text-center" style="" >
-                                    <a class="nav-link" href="/home" style="font-size: 20px; color:black; width:59px">
-                                        <button type="button" class="btnNav" style="width: 59px">Inicio</button>
-                                    </a>
-                                    </li>
-                                    <li class="nav-item  text-center" style="" >
-                                    <a class="nav-link" href="/usuarios" style="font-size: 20px; color:black; width:87px">
-                                        <button type="button" class="btnNav"  style="width: 87px">Usuarios</button>
-                                    </a>
-                                    </li>
-                                    <li class="nav-item text-center" style="">
-                                    <a class="nav-link" href="/instalaciones" style="font-size: 20px; color:black; width:125px">
-                                        <button type="button" class="btnNav"  style="width: 125px">Instalaciones</button> 
-                                    </a>
-                                    </li>
-                                    <li class="nav-item text-center" style="">
-                                    <a class="nav-link" href="/empleados" style="font-size: 20px; color:black; width:115px">
-                                        <button type="button" class="btnNav" style="width: 115px">Empleados</button></a>
-                                    </li>
-                                    
-                                    <li class="nav-item text-center" style="">
-                                    
-                                    <a class="nav-link" href="/asistencia" style="font-size: 20px; color:black; width:114px">
-                                        <button type="button" class="btnNav" style="width: 114px">Asistencia</button></a>
-                                    </li>
-                                    <li class="nav-item text-center" style="">
-                                    <a class="nav-link" href="/reportes" style="font-size: 20px; color:black; width:110px">
-                                        <button type="button" class="btnNav" style="width: 110px">Reportes</button></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </nav>                    
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/home">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-laugh-wink"></i>
                 </div>
+                <a class="navbar-brand" href="/home">
+                        <div class="logo-image">
+                            <img style="width: 200px; height: 60px" src="/images/logo2.png" alt="">
+                        </div>
+                    </a>
+                
+            </a>
 
-                @endguest
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active" style="margin:auto">
+                <a class="nav-link">
+                <img class="img-profile rounded-circle"
+                                    src="images/Admin-icon.png" width="25px" height="25px">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>{{ Auth::user()->nombre }}</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Cuenta
             </div>
-            @yield('content')
-        </section>       
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#"  data-bs-toggle="modal" data-bs-target="#modal" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Ver Perfil</span>
+                </a>
+                <a class="nav-link collapsed" href="{{ route('logout') }}" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo"  onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>{{ __('Cerrar Sesión') }}</span>
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+            </li>
+
+            <!-- Nav Item - Utilities Collapse Menu -->
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Enlaces
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/usuarios" data-toggle="collapse" data-target="#collapsePages"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Usuarios</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/instalaciones" data-toggle="collapse" data-target="#collapsePages"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Instalaciones</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/empleados" data-toggle="collapse" data-target="#collapsePages"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Empleados</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/asistencia" data-toggle="collapse" data-target="#collapsePages"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Asistencia</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/reportes" data-toggle="collapse" data-target="#collapsePages"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Reportes</span>
+                </a>
+            </li>
+
+            <!-- Sidebar Message -->
+            <div class="sidebar-card d-none d-lg-flex">
+                <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
+                <p class="text-center mb-2"><strong>Union Global Services </strong>@ 2022</p>
+            </div>
+
+            </ul>
+            @endguest
+            <!-- End of Sidebar -->
+
+            <div id="content-wrapper" class="d-flex flex-column">
+            <!-- Main Content -->
+                <div id="content">
+                    @yield('content')
+                </div>
+            </div>
+        </div>       
     </div>
 </body>
 </html>
