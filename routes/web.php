@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\InstalacionController;
 use App\Exports\EmpleadoExport;
 use App\Exports\InstalacionExport;
+use App\Exports\UserExport;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,15 +35,19 @@ Route::get('/home', 'HomeController@index');
 
 Route::post('registrar', 'UserController@create');
 Route::resource('/usuarios', 'UserController');
-Route::get('/descargar_usuario', 'EmpleadoController@export');
+Route::get('/usuarios_descarga', 'UserController@export');
+Route::post('/usuarios/importar', 'UserController@store');
 
 Route::resource('/instalaciones', 'InstalacionController');
 Route::post('crear_insta', 'InstalacionController@create');
-Route::get('/descargar_instalacion', 'InstalacionController@export');
+Route::get('/instalacion_descarga', 'InstalacionController@export');
+Route::post('/instalaciones/importar', 'InstalacionController@store');
 
 Route::resource('/empleados', 'EmpleadoController');
 Route::post('crear_emp', 'EmpleadoController@create');
-Route::get('/descargar_empleado', 'EmpleadoController@export');
+Route::get('/empleado_descarga', 'EmpleadoController@export');
+Route::post('/empleados/importar', 'EmpleadoController@store');
+
 
 Route::resource('/asistencia', 'FormularioController');
 Route::post('/asistencia/descargar', 'FormularioController@store');

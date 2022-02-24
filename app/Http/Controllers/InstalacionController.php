@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Instalaciones;
 use App\Exports\InstalacionExport;
+use App\Imports\InstalacionImport;
 use Illuminate\Http\Request;
 use App\Models\Instalacion;
 use Illuminate\Support\Facades\DB;
@@ -56,7 +56,11 @@ class InstalacionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $file = $request->file('file');
+
+        Excel::import(new InstalacionImport, $file);
+
+        return back()->withStatus('Archivo importado con éxito!');
     }
 
     public function export()

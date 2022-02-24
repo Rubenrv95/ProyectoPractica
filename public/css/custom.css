@@ -100,18 +100,18 @@
 }
 
 .btnNav {
-    background-color: rgb(236, 238, 240);
+    background-color: #9dd6f3;
     border: 0.1px solid black;
     cursor: pointer;
     outline: none;
 }
 
 .btnNav:hover {
-    background-color: rgb(206, 206, 206);
+    background-color: #55c1f7;
 }
 
 .btnNav:active{
-    background-color: rgb(182, 183, 184);
+    background-color: #1dadf5;
     box-shadow: 3px 2px 22p 1px rgba(rgb(2rgb(193, 201, 193)96, 196), rgb(213rgb(255, 255, 255)1, 213), blue, alpha);
 }
 

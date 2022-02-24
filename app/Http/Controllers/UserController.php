@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Exports\UserExport;
+use App\Imports\UserImport;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -55,7 +57,11 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $file = $request->file('file');
+
+        Excel::import(new UserImport, $file);
+
+        return back()->withStatus('Archivo importado con éxito!');
     }
 
     public function export()

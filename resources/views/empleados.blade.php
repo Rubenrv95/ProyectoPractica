@@ -30,8 +30,16 @@
                         <button type="button" class="btngestionar" data-bs-toggle="modal" data-bs-target="#modal_create" style="width: 170px; height: 30px">
                             Agregar empleado
                         </button>
-                        <a href="/descargar_instalacion"> <button type="button" class="btngestionar" style="width: 100px; height: 30px">Descargar</button></a>
+                        <a href="/empleado_descarga"> <button type="button" class="btngestionar" style="width: 130px; height: 30px">Exportar todo</button></a>
                         <p></p>
+                        <form action="/empleados/importar" method="post" enctype="multipart/form-data">
+                                @csrf
+                                <div class="form-group">
+                                    <input type="file" name="file" />
+
+                                    <button type="submit" class="btngestionar" style="width: 100px; height: 30px"> Importar </button>
+                                </div>
+                        </form>
                     </div>
                     <table id="empleados" class="table table-striped table-bordered">
                         <thead>
@@ -280,5 +288,19 @@
 
     </script>
 </body>
+
+<footer>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card text-center">
+                    <p></p>
+                    <p style="color: black; font-style: bold">Union Global Services @ 2022</p>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
 @endsection
 </html>

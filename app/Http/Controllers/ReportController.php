@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Instalacion;
+use App\Models\Empleado;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ReportController extends Controller
 {
@@ -13,7 +19,17 @@ class ReportController extends Controller
      */
     public function index()
     {
-        return view ('reportes');
+        
+        $instas = Instalacion::all();
+        $data = [];
+
+        foreach($instas as $insta) {
+            $data['label'][] = $insta->nombre_insta;
+            $data['data'][] = $insta->Dotacion;
+        }
+
+        $data['data'] = json_encode($data);
+        return view('reportes', $data);
     }
 
     /**
@@ -81,4 +97,5 @@ class ReportController extends Controller
     {
         //
     }
+
 }

@@ -24,6 +24,10 @@ class FormularioController extends Controller
         return view('formulario', ['insta' => $data], ['empleado' => $emp]);
     }
 
+    public function ajax() {
+        $emp = Empleado::orderBy('nombre')->get();
+    }
+
     /**
      * Show the form for creating a new resource.
      *

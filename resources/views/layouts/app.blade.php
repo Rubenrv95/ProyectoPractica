@@ -60,11 +60,16 @@
                                 @endif
                             @else
                                 <li class="nav-item dropdown">
+
                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" style="font-size: 22px" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                         {{ Auth::user()->nombre }}
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modal"
+                                            onclick="event.preventDefault();">
+                                            {{ __('Ver Datos de Perfil') }}
+                                        </a>
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                         document.getElementById('logout-form').submit();">
@@ -81,6 +86,43 @@
                     </div>
                 </div>
             </nav>
+
+            <!-- Modal Ver Usuario-->
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div tabindex="-1" class="modal fade" id="modal" aria-labelledby="modalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-md">
+                                    {{ csrf_field() }}
+                                    {{ method_field('PUT')}}  
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="justify-content-center" style="font-size: 50; margin: auto">
+                                                Datos de Usuario
+                                            </h1>
+                                        </div>
+
+                                        <div class="modal-body">
+                                            <div style="margin: auto">
+                                                <label for="">{{ Auth::user()->nombre }}</label>
+                                            </div>  
+                                            <div style="margin: auto">
+                                                <label for="">{{ Auth::user()->email }}</label>
+                                            </div>
+                                            <div style="margin: auto">
+                                                <label for="">{{ Auth::user()->tipo }}</label>
+                                            </div>         
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </header>
         <section>
             <div class="container">

@@ -27,72 +27,73 @@
         <div class="row justify-content-center">
                 <div class="col-md-10">
                     <div class="card">
-                        <h1 style="margin:auto">Tabla de Empleados</h1>
-                        <table id="empleados" class="table table-striped table-bordered">
-                            <thead>
-                                <th >Nombre</th>
-                                <th>RUT</th>
-                                <th>Correo Electrónico</th>
-                                <th>Teléfono</th>
-                                <th>Instalación</th>
-                                <th>Cargo</th>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <h1 style="margin:auto">Instalaciones por Dotación</h1>
+                        <canvas id="myChart" width="300" height="100"></canvas>
                     </div>
 
-                    <div class="card">
-                        <h1 style="margin:auto">Tabla de Usuarios</h1>
-                        <table id="usuarios" class="table table-striped table-bordered" style="width:100%">
-                            <thead>
-                                <th>Nombre</th>
-                                <th>Correo Electrónico</th>
-                                <th>Tipo</th>
-                            </thead>
-
-                            <tbody>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
 
                     <div class="card">
-                        <h1 style="margin:auto">Tabla de Usuarios</h1>
-                        <table id="usuarios" class="table table-striped table-bordered" style="width:100%">
-                            <thead>
-                                <th>ID</th>
-                                <th>Nombre</th>
-                                <th>Dirección</th>
-                                <th>Dotación</th>
-                            </thead>
-
-                            <tbody>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <h1 style="margin:auto">Tabla de Instalaciones</h1>
                     </div>
                 </div>
         </div>
     </div>
-    
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+
+    $(document).ready(function() {
+        
+        var cData = JSON.parse('<?php echo $data ?>');
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: cData.label,
+                datasets: [{
+                    label: 'Dotación de Instalaciones',
+                    data: cData.data,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(182, 20, 51, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+
+    });
+
+    </script>    
 </body>
+
+<footer>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card text-center">
+                    <p></p>
+                    <p style="color: black; font-style: bold">Union Global Services @ 2022</p>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
 @endsection
 </html>

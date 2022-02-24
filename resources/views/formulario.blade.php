@@ -28,6 +28,14 @@
                         <label for="fecha" style="margin-left: auto">Ingrese una fecha:</label>
                         <input type="date" id="fecha" name="fecha" style="width: 200px; margin-left: auto">
                         <p></p>
+
+                        <select data-column="4" class="form-control filter-select" style="width: 300px">
+                            <option value="">Seleccionar instalación</option>
+                            @foreach ($insta as $i)
+                                <option value="{{$i['nombre_insta']}}">{{$i['nombre_insta']}}</option>
+                            @endforeach
+                        </select>
+
                         <table id="myTable" name="myTable" class="table table-striped table-bordered">
                             <thead>
                                 <th >Nombre</th>
@@ -66,7 +74,7 @@
                         </table> 
                         <p></p>
                             
-                        <button type="submit" class="btn btn-primary" style="margin-left: auto; width: 100px">Enviar</button>
+                        <button type="submit" class="btngestionar" style="margin-left: auto; width: 80px; height: 40px">Enviar</button>
                     </form>
 
                 </div>
@@ -77,10 +85,47 @@
     
     <script>
 
+        
+    $(document).ready(function() {
+
+        var table= $('#myTable').DataTable({
+            'processing': true,
+            'serverSide': true,
+            
+            'columns': [
+                {'data': 'instalacion'}
+            ],
+        });
+
+        $('.filter-select').change(function() {
+            table.column( $(this).data('column') )
+                .search( $(this).val() )
+                .draw();
+
+        });
+
+
+    });
+
+
         // Data Picker Initialization
         $('.datepicker').datepicker();
         
     </script>
 </body>
+
+<footer>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card text-center">
+                    <p></p>
+                    <p style="color: black; font-style: bold">Union Global Services @ 2022</p>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
 @endsection
 </html>

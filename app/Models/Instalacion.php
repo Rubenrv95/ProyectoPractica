@@ -10,7 +10,7 @@ class Instalacion extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nombre',
+        'nombre_insta',
         'Direccion',
         'Dotacion',
     ];

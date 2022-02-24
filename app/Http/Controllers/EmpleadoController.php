@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Empleado;
 use App\Exports\EmpleadoExport;
+use App\Imports\EmpleadoImport;
 use Illuminate\Http\Request;
 use App\Models\Instalacion;
 use App\Models\User;
@@ -68,7 +69,11 @@ class EmpleadoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $file = $request->file('file');
+
+        Excel::import(new EmpleadoImport, $file);
+
+        return back()->withStatus('Archivo importado con éxito!');
     }
 
     public function export()

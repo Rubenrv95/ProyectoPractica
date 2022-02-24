@@ -33,11 +33,19 @@
                 <div class="col-md-8">
                     <div class="card">
                         <div class="col" style="margin-left: auto">
-                            <button type="button" class="btngestionar" data-bs-toggle="modal" data-bs-target="#modal_create" style="width: 150px; height: 30px">
+                            <button type="button" class="btngestionar" data-bs-toggle="modal" data-bs-target="#modal_create" style="width: 150px; height: 30px;">
                                 Agregar usuario
                             </button>
-                            <a href="/descargar_instalacion"> <button type="button" class="btngestionar" style="width: 100px; height: 30px">Descargar</button></a>
+                            <a href="/usuarios_descarga"> <button type="button" class="btngestionar" style="width: 130px; height: 30px">Exportar todo</button></a>
                             <p></p>
+
+                            <form action="/usuarios/importar" method="post" enctype="multipart/form-data">
+                                @csrf
+                                <div class="form-group">
+                                    <input type="file" name="file"/>
+                                    <button type="file" class="btngestionar" style="width: 100px; height: 30px"> Importar </button>
+                                </div>
+                            </form>
                         </div>       
                         <table id="usuarios" class="table table-striped table-bordered" style="width:100%">
                             <thead>
@@ -195,6 +203,20 @@
 
         </script>
     </body>
+
+    <footer>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card text-center">
+                    <p></p>
+                    <p style="color: black; font-style: bold">Union Global Services @ 2022</p>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
 
     @endsection
 </html>
